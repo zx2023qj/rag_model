@@ -55,7 +55,7 @@ def generate_vectors(chunks):
 
 # 3. 存储到Neo4j
 def save_to_neo4j(chunks, book_meta):
-    driver = GraphDatabase.driver("bolt://192.168.35.129:7687", auth=("neo4j", "albert-thermos-button-palma-frozen-4437"))
+    driver = GraphDatabase.driver("bolt://ip:port", auth=("neo4j", "password"))
     with driver.session() as session:
         # 创建Book节点
         session.run("""
@@ -87,7 +87,7 @@ def save_to_neo4j(chunks, book_meta):
         print("neo4j 结构创建完成")
 
 def create_vector_index():
-    driver = GraphDatabase.driver("bolt://192.168.35.129:7687", auth=("neo4j", "albert-thermos-button-palma-frozen-4437"))
+    driver = GraphDatabase.driver("bolt://ip:port", auth=("neo4j", "password"))
     with driver.session() as session:
         # 创建vector的索引
         session.run(
@@ -98,7 +98,7 @@ def create_vector_index():
     print("vector索引创建完成")
 
 def remake_neo4j():
-    driver = GraphDatabase.driver("bolt://192.168.35.129:7687", auth=("neo4j", "albert-thermos-button-palma-frozen-4437"))
+    driver = GraphDatabase.driver("bolt://ip:port", auth=("neo4j", "password"))
     with driver.session() as session:
         # remake!!!
         session.run(
@@ -113,8 +113,8 @@ def remake_neo4j():
 pdf_path = "../demo.pdf"
 book_meta = {
     "book_id": "book1",
-    "title": "机电系统故障诊断与维修案例教程",
-    "author": "段向军"
+    "title": "title",
+    "author": "author"
 }
 
 chunks = extract_pdf_content(pdf_path)

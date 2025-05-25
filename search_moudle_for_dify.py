@@ -12,7 +12,7 @@ reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 POS_WINDOW = 3
 
 # Neo4j 驱动
-driver = GraphDatabase.driver("bolt://192.168.35.129:7687", auth=("neo4j", "albert-thermos-button-palma-frozen-4437"))
+driver = GraphDatabase.driver("bolt://ip:port", auth=("neo4j", "password"))
 
 # 请求/响应模型
 class SearchRequest(BaseModel):
