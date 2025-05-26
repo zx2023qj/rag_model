@@ -1,3 +1,7 @@
+import os
+# 在导入 SentenceTransformer 之前设置环境变量
+os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+
 from fastapi import Body, FastAPI, HTTPException
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer, CrossEncoder

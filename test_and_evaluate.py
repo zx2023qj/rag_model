@@ -57,5 +57,5 @@ def data_analysis():
         print(avg_token)
 
 
-# produce_data()
+produce_data()
 data_analysis()
